@@ -1,0 +1,22 @@
+/* Estilos para la sección Featured In y el carrusel */
+.featured-in {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.featured-in h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.logo-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-carousel img {
+  max-width: 100px;
+  margin: 0 20px;
+}

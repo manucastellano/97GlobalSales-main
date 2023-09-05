@@ -1,0 +1,239 @@
+/* Carousel statico */
+
+.static-carousel{
+  width: 100%;
+  height: 100vh;
+  background-color: aqua;
+  position: relative;
+  overflow: hidden;
+}
+.static-carousel-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#static-carousel-item-container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* width: 300%; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* margin-left: -100%; */
+}
+.static-carousel-btn{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  color: #000;
+  background-color:rgba(255, 255, 255, .7);
+  top: 50%;
+  transform: translate(-50%);
+  line-height: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.static-carousel-btn:hover{
+  background-color  : #fff;
+}
+.static-carousel-btn--right{
+  right: 0px;
+}
+.static-carousel-btn--left{
+  left: 30px;
+}
+
+.static-carousel-item{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7); /* Color y opacidad del overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* flip cards */
+.grid-flip-cards{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
+}
+
+.flip-card-container{
+  font-size: 1.25rem;
+  border: 0;
+  position: relative;
+  padding: 0;
+}
+
+.flip-card{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  border: 0;
+  cursor: pointer;
+  backface-visibility: hidden;
+  transition: 1s;
+  margin: .5rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.flip-card.flip-card-front{
+  transform: perspective(500px) rotateY(0deg);
+} 
+
+.flip-card.flip-card-back{
+  padding: 1rem;
+  background-color: #F8F8F8;
+  text-align: center;
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.flip-card-container:hover .flip-card.flip-card-front{
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.flip-card-container:hover .flip-card.flip-card-back{
+  transform: perspective(500px) rotateY(360deg);
+}
+
+.flip-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8; /* Opacidad del fondo */
+}
+
+.flip-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7); /* Color y opacidad del overlay */
+  z-index: -1;
+}
+
+.flip-card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, .7); /* Color y opacidad del overlay */
+  z-index: 1;
+}
+
+.flip-card-icon {
+  width: 25%;
+  height: 25%;
+}
+
+.flip-card-title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #000;
+  font-family: "Teko",sans-serif;
+}
+
+.flip-card-front .flip-card-title {
+  color: #fff;
+}
+
+.blink{
+  animation: blink 0.7s infinite;
+}
+
+.img-container {
+  position: absolute;
+  inset: 0 0 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-container img {
+  width: 100%;
+  height: fit-content;
+}
+
+.card-icon{
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: 1010;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.height-240{
+  height: 320px;
+}
+
+@media screen and (max-width: 1200px) {
+  .height-240{
+    height: 357px;
+  }
+}
+
+
+
+@media screen and (max-width: 992px) {
+  .grid-flip-cards{
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  }
+  .height-240{
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .grid-flip-cards{
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+  .static-carousel-btn{
+    display: none;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
